@@ -1,0 +1,18 @@
+version: '3.4'
+
+services:
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    hostname: laravel-app
+    container_name: laravel-app
+    ports:
+      - "8090:80"
+    volumes:
+      - .:/var/www/html
+    networks:
+      - localnet_ci
+networks:
+  localnet_ci:
+    driver: "bridge"
